@@ -59,11 +59,10 @@ defmodule TelemetryMetricsTelegraf.Adapters.Instream do
   def write(measurement_name, tags, fields, opts) do
     opts[:connection].write(
       %{
-        points: [
-          %{measurement: measurement_name, tags: tags, fields: fields}
-        ]
-      },
-      log: opts[:log]
+        measurement: measurement_name,
+        tags: tags,
+        fields: fields
+      }
     )
   end
 end
